@@ -1,0 +1,31 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  background-color: #f5f5f5;
+}
+
+.sidebar {
+  flex: 0 0 350px;
+  overflow-y: auto;
+}
+
+.center-content {
+  flex: 1;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    flex: none;
+  }
+}

@@ -1,0 +1,14 @@
+<div class="notifications">
+  <h2>Zone de notifications</h2>
+  <div class="notification-bell">
+    <button (click)="toggleNotifications()" class="bell-btn">
+      🔔 Vous avez {{ notificationCount }} nouvelle(s) notification(s)
+    </button>
+    <button class="show-btn">Afficher les notifications</button>
+  </div>
+  <div *ngIf="showNotifications" class="notification-list">
+    <ul>
+      <li *ngFor="let notif of notifications">{{ notif }}</li>
+    </ul>
+  </div>
+</div>

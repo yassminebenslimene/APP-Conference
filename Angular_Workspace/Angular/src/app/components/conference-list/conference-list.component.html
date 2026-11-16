@@ -1,0 +1,54 @@
+<div class="conference-list-container">
+  <div class="header-section">
+    <h2>
+      <span class="icon">📅</span>
+      Liste des conférences à venir
+    </h2>
+    <p class="subtitle">Cliquez sur une conférence pour afficher ses détails.</p>
+  </div>
+
+  <!-- Barre de recherche -->
+  <div class="search-section">
+    <input 
+      type="text" 
+      class="search-input" 
+      placeholder="Taper le titre de la conférence"
+      [(ngModel)]="searchTerm">
+  </div>
+
+  <!-- Message si aucune conférence -->
+  <div *ngIf="conferences().length === 0" class="no-conferences">
+    <p>Aucune conférence enregistrée pour le moment.</p>
+  </div>
+
+  <!-- Message si aucun résultat de recherche -->
+  <div *ngIf="conferences().length > 0 && filteredConferences.length === 0" class="no-results">
+    <p>Aucune conférence ne correspond à votre recherche.</p>
+  </div>
+
+  <!-- Liste des conférences -->
+  <div class="conferences-grid">
+    <div 
+      *ngFor="let conference of filteredConferences" 
+      class="conference-card"
+      (click)="selectConference(conference)"
+      [class.selected]="selectedConference()?.id === conference.id">
+      <h3>{{ conference.title | uppercase }}</h3>
+      <p class="description">{{ conference.description }}</p>
+      
+      <div class="conference-details">
+        <p><strong>Date :</strong> {{ formatDate(conference.date) }}</p>
+        <p><strong>Lieu :</strong> {{ conference.place }}</p>
+        <p><strong>Places restantes :</strong> {{ getRemainingPlaces(conference) }}</p>
+      </div>
+
+      <button 
+        (click)="subscribe(conference); $event.stopPropagation()"
+        [ngStyle]="{ 'background-color': getButtonStatus(conference).color }"
+        class="subscribe-btn"
+        [disabled]="getRemainingPlaces(conference) === 0">
+        S'inscrire
+      </button>
+    </div>
+  </div>
+</div>

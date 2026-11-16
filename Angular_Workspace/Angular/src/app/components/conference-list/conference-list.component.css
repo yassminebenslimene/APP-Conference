@@ -1,0 +1,178 @@
+.conference-list-container {
+  background-color: white;
+  border-left: 5px solid #4CAF50;
+  padding: 30px;
+  margin: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-section {
+  margin-bottom: 25px;
+}
+
+.header-section h2 {
+  margin: 0 0 10px 0;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+.subtitle {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.search-section {
+  margin-bottom: 25px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.no-conferences,
+.no-results {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+  font-size: 1.1rem;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  border: 1px dashed #ddd;
+}
+
+.conferences-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.conference-card {
+  background-color: #f9f9f9;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.conference-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.conference-card.selected {
+  border: 2px solid #2196F3;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+  background-color: #f0f8ff;
+}
+
+.conference-card h3 {
+  margin: 0 0 10px 0;
+  color: #1e3a5f;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.description {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0 0 15px 0;
+  line-height: 1.4;
+}
+
+.conference-details {
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+.conference-details p {
+  margin: 8px 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.conference-details strong {
+  color: #333;
+}
+
+.subscribe-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.subscribe-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.subscribe-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.subscribe-btn[style*="background-color: green"] {
+  background-color: #4CAF50;
+}
+
+.subscribe-btn[style*="background-color: green"]:hover {
+  background-color: #45a049;
+}
+
+.subscribe-btn[style*="background-color: orange"] {
+  background-color: #FF9800;
+}
+
+.subscribe-btn[style*="background-color: orange"]:hover {
+  background-color: #F57C00;
+}
+
+.subscribe-btn[style*="background-color: red"] {
+  background-color: #f44336;
+}
+
+.subscribe-btn[style*="background-color: red"]:hover {
+  background-color: #da190b;
+}
+
+@media (max-width: 768px) {
+  .conferences-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .conference-list-container {
+    padding: 20px;
+    margin: 10px;
+  }
+}

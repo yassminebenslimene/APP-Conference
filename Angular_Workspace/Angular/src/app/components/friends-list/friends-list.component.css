@@ -1,0 +1,40 @@
+.friends-list {
+  background-color: white;
+  border-left: 5px solid #4CAF50;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.friends-list h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.friends-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.friends {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.friend-item {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  text-align: center;
+  color: #555;
+}

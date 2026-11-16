@@ -1,0 +1,52 @@
+<div class="conference-details-container">
+  <!-- En-tête du composant -->
+  <div class="header-section">
+    <h2>
+      <span class="icon">🔧</span>
+      Détail de la conférence
+    </h2>
+    <p class="subtitle">Conférence sélectionnée depuis la liste.</p>
+  </div>
+
+  <!-- Affichage si aucune conférence sélectionnée -->
+  <div *ngIf="!selectedConference()" class="no-selection">
+    <p>Aucune conférence sélectionnée. Cliquez sur une conférence dans la liste pour voir ses détails.</p>
+  </div>
+
+  <!-- Affichage des détails de la conférence sélectionnée -->
+  <div *ngIf="selectedConference()" class="details-content">
+    <div class="detail-item">
+      <label>Titre :</label>
+      <p class="detail-value">{{ selectedConference()?.title }}</p>
+    </div>
+
+    <div class="detail-item">
+      <label>Description :</label>
+      <p class="detail-value">{{ selectedConference()?.description }}</p>
+    </div>
+
+    <div class="detail-item">
+      <label>Lieu :</label>
+      <p class="detail-value">{{ selectedConference()?.place }}</p>
+    </div>
+
+    <div class="detail-item">
+      <label>Date :</label>
+      <p class="detail-value">{{ formatDateISO(selectedConference()!.date) }}</p>
+    </div>
+
+    <div class="detail-item">
+      <label>Places disponibles :</label>
+      <p class="detail-value">{{ getRemainingPlaces(selectedConference()!) }}</p>
+    </div>
+
+    <div class="actions">
+      <button 
+        (click)="subscribe(selectedConference()!)"
+        class="subscribe-btn-detail"
+        [disabled]="getRemainingPlaces(selectedConference()!) === 0">
+        S'inscrire
+      </button>
+    </div>
+  </div>
+</div>
